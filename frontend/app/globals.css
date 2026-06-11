@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  color-scheme: light;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #f6f8fc;
+  color: #1f2a42;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: linear-gradient(180deg, #eef3fb 0%, #f9fbff 100%);
+}
+
+.page-shell {
+  padding: 32px;
+  min-height: 100vh;
+}
+
+.board-title {
+  max-width: 1040px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.board-title h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 1.6rem + 0.8vw, 2.6rem);
+  color: #032147;
+}
+
+.board-title p {
+  margin: 0;
+  color: #6b758b;
+  max-width: 520px;
+  line-height: 1.6;
+}
+
+.board {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.column {
+  background: #ffffff;
+  border: 1px solid rgba(22, 47, 110, 0.08);
+  border-radius: 22px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 560px;
+}
+
+.column.dropping {
+  border-color: #209dd7;
+  box-shadow: 0 0 0 4px rgba(32, 157, 215, 0.12);
+}
+
+.column-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.column-header label {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #888888;
+}
+
+.column-header input {
+  border: none;
+  border-bottom: 1px solid rgba(22, 47, 110, 0.14);
+  background: transparent;
+  padding: 8px 4px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #032147;
+}
+
+.column-header input:focus {
+  outline: none;
+  border-color: #209dd7;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1 1 auto;
+  margin-bottom: 18px;
+}
+
+.card {
+  background: #f8fbff;
+  border: 1px solid rgba(32, 157, 215, 0.16);
+  border-radius: 18px;
+  padding: 16px;
+  display: grid;
+  gap: 10px;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.card.dragging {
+  transform: scale(1.02);
+  box-shadow: 0 16px 32px rgba(3, 33, 71, 0.12);
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #032147;
+}
+
+.card-details {
+  margin: 0;
+  color: #5f6c87;
+  line-height: 1.5;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.delete-button {
+  border: none;
+  background: transparent;
+  color: #d03d57;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.card-handle {
+  width: 100%;
+  display: inline-flex;
+  justify-content: flex-end;
+  color: #888888;
+  cursor: grab;
+}
+
+.add-card-form {
+  padding-top: 10px;
+  display: grid;
+  gap: 10px;
+}
+
+.add-card-form input,
+.add-card-form textarea {
+  width: 100%;
+  border: 1px solid rgba(22, 47, 110, 0.12);
+  border-radius: 14px;
+  padding: 10px 12px;
+  font: inherit;
+  color: #1f2a42;
+  background: #f7f9fe;
+}
+
+.add-card-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.add-card-form button {
+  align-self: start;
+  border: none;
+  border-radius: 14px;
+  padding: 10px 16px;
+  color: #ffffff;
+  background: #753991;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.add-card-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 840px) {
+  .board {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .page-shell {
+    padding: 20px 16px;
+  }
+}
